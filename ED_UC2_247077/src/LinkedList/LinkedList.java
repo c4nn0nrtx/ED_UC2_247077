@@ -1,17 +1,18 @@
 package LinkedList;
 
 /**
- * LinkedList.java
- * 
  * Representa una lista enlazada simple.
- * 
+ *
  * @author Brandon Valenzuela
  */
 public class LinkedList {
 
-    private Nodo inicial;
-    private int tam;
+    private Nodo inicial; // Primer nodo de la lista
+    private int tam; // Tamaño de la lista
 
+    /**
+     * Constructor de la lista enlazada. Inicializa la lista como vacía.
+     */
     public LinkedList() {
         this.inicial = null;
         this.tam = 0;
@@ -39,6 +40,8 @@ public class LinkedList {
      * Agrega un elemento al inicio de la lista.
      *
      * @param dato Elemento a agregar.
+     * @pre El dato debe ser un número entero válido.
+     * @post La lista tendrá un nuevo nodo al inicio.
      */
     public void addFirst(int dato) {
         Nodo nuevo = new Nodo(dato);
@@ -51,6 +54,8 @@ public class LinkedList {
      * Agrega un elemento al final de la lista.
      *
      * @param dato Elemento a agregar.
+     * @pre El dato debe ser un número entero válido.
+     * @post La lista tendrá un nuevo nodo al final.
      */
     public void addLast(int dato) {
         Nodo nuevo = new Nodo(dato);
@@ -68,6 +73,9 @@ public class LinkedList {
 
     /**
      * Elimina el primer elemento de la lista.
+     *
+     * @pre La lista no debe estar vacía.
+     * @post Se eliminará el primer nodo de la lista si existe.
      */
     public void removeFirst() {
         if (!isEmpty()) {
@@ -78,6 +86,9 @@ public class LinkedList {
 
     /**
      * Elimina el último elemento de la lista.
+     *
+     * @pre La lista no debe estar vacía.
+     * @post Se eliminará el último nodo de la lista si existe.
      */
     public void removeLast() {
         if (!isEmpty()) {
@@ -114,8 +125,12 @@ public class LinkedList {
     /**
      * Obtiene un elemento en una posición específica.
      *
-     * @param index Índice del elemento.
-     * @return Elemento en la posición indicada o -1 si el índice es inválido.
+     * @param index Índice del elemento (debe ser >= 0 y < tam).
+     * @
+     * return Elemento en la posición indicada o -1 si el índice es inválido.
+     * @pre El índice debe estar dentro del rango de la lista.
+     * @post No se modifica la lista, solo se devuelve el valor del nodo en la
+     * posición indicada.
      */
     public int getElement(int index) {
         if (index < 0 || index >= tam) {
@@ -130,6 +145,8 @@ public class LinkedList {
 
     /**
      * Elimina todos los elementos de la lista.
+     *
+     * @post La lista estará vacía.
      */
     public void clear() {
         inicial = null;
@@ -139,7 +156,8 @@ public class LinkedList {
     /**
      * Retorna una representación en cadena de la lista.
      *
-     * @return Cadena con los elementos de la lista.
+     * @return Cadena con los elementos de la lista en formato [elem1, elem2,
+     * ...].
      */
     @Override
     public String toString() {
@@ -157,11 +175,19 @@ public class LinkedList {
     }
 }
 
+/**
+ * Representa un nodo de la lista enlazada.
+ */
 class Nodo {
 
-    int dato;
-    Nodo siguiente;
+    int dato; // Valor del nodo
+    Nodo siguiente; // Referencia al siguiente nodo
 
+    /**
+     * Constructor de un nodo.
+     *
+     * @param dato Valor del nodo.
+     */
     public Nodo(int dato) {
         this.dato = dato;
         this.siguiente = null;
