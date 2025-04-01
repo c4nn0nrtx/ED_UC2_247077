@@ -1,8 +1,10 @@
 package Pruebas;
 
+import LinkedList.DoubleLinkedList_Circular;
 import LinkedList.LinkedList_Simple;
 import LinkedList.DoubleLinkedList_Simple;
 import LinkedList.LinkedList_Circular;
+
 /**
  * Clase de pruebas para la implementación de la lista enlazada simple.
  *
@@ -19,7 +21,7 @@ public class Pruebas {
      * @param args Argumentos de la línea de comandos (no se utilizan).
      */
     public static void main(String[] args) {
-        
+
 //        // Lista Enlazada Simple
 //
 //        LinkedList_Simple lista = new LinkedList_Simple();
@@ -58,27 +60,63 @@ public class Pruebas {
 //        System.out.println("Lista después de limpiar: " + lista);
 
 
-        //Lista Enlazada Simple Circular
+//        //Lista Enlazada Simple Circular
+//
+//        LinkedList_Circular<Integer> lista = new LinkedList_Circular<>();
+//        
+//        System.out.println("Lista vacía: " + lista.isEmpty());
+//        
+//        lista.addFirst(10);
+//        lista.addLast(20);
+//        lista.addLast(30);
+//        System.out.println("Lista después de agregar elementos: " + lista);
+//        
+//        System.out.println("Contiene 20: " + lista.contains(20));
+//        System.out.println("Elemento en posición 1: " + lista.getElement(1));
+//        
+//        lista.removeFirst();
+//        System.out.println("Lista después de removeFirst: " + lista);
+//        
+//        lista.removeLast();
+//        System.out.println("Lista después de removeLast: " + lista);
+//        
+//        lista.clear();
+//        System.out.println("Lista después de clear: " + lista.isEmpty());
 
-        LinkedList_Circular<Integer> lista = new LinkedList_Circular<>();
-        
-        System.out.println("Lista vacía: " + lista.isEmpty());
-        
-        lista.addFirst(10);
-        lista.addLast(20);
-        lista.addLast(30);
-        System.out.println("Lista después de agregar elementos: " + lista);
-        
-        System.out.println("Contiene 20: " + lista.contains(20));
-        System.out.println("Elemento en posición 1: " + lista.getElement(1));
-        
-        lista.removeFirst();
-        System.out.println("Lista después de removeFirst: " + lista);
-        
-        lista.removeLast();
-        System.out.println("Lista después de removeLast: " + lista);
-        
-        lista.clear();
-        System.out.println("Lista después de clear: " + lista.isEmpty());
+
+        //Lista Doblemente Enlazada Circular
+        DoubleLinkedList_Circular<Integer> list = new DoubleLinkedList_Circular<>();
+
+        // Prueba de isEmpty y size
+        System.out.println("Lista vacía: " + list.isEmpty()); // true
+        System.out.println("Tamaño: " + list.size()); // 0
+
+        // Agregar elementos al inicio y al final
+        list.addFirst(10);
+        list.addLast(20);
+        list.addFirst(5);
+        list.addLast(25);
+
+        System.out.println("Lista después de agregar elementos: " + list);
+        System.out.println("Tamaño: " + list.size());
+
+        // Prueba de contains
+        System.out.println("Contiene 10: " + list.contains(10)); // true
+        System.out.println("Contiene 30: " + list.contains(30)); // false
+
+        // Obtener elementos
+        System.out.println("Elemento en posición 1: " + list.getElement(1)); // 10
+
+        // Remover elementos
+        list.removeFirst();
+        System.out.println("Lista después de removeFirst(): " + list);
+
+        list.removeLast();
+        System.out.println("Lista después de removeLast(): " + list);
+
+        // Limpiar la lista
+        list.clear();
+        System.out.println("Lista después de clear(): " + list);
+        System.out.println("Lista vacía: " + list.isEmpty()); // true
     }
 }
