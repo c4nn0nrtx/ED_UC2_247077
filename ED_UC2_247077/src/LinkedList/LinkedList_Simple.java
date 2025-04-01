@@ -1,5 +1,7 @@
 package LinkedList;
 
+import Nodos.Nodo;
+
 /**
  * Representa una lista enlazada simple.
  *
